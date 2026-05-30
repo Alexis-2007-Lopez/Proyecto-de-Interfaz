@@ -38,7 +38,6 @@ public class ListaVideojuegos extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
-        // MENU
         JMenuBar barra = new JMenuBar();
 
         JMenu menuArchivo = new JMenu("Archivo");
@@ -50,12 +49,8 @@ public class ListaVideojuegos extends JFrame {
         menuArchivo.add(itemGuardar);
         menuArchivo.add(itemCargar);
         menuArchivo.add(itemColor);
-
         barra.add(menuArchivo);
-
         setJMenuBar(barra);
-
-        // PANEL SUPERIOR
         JPanel panelSuperior = new JPanel();
         panelSuperior.setLayout(null);
         panelSuperior.setBackground(new Color(203, 139, 242));
@@ -88,7 +83,6 @@ public class ListaVideojuegos extends JFrame {
         txtPlataforma.setBounds(620, 20, 150, 25);
         panelSuperior.add(txtPlataforma);
 
-        // EN LINEA
         JLabel lblEnLinea = new JLabel("En línea:");
         lblEnLinea.setBounds(20, 70, 80, 25);
         panelSuperior.add(lblEnLinea);
@@ -97,7 +91,6 @@ public class ListaVideojuegos extends JFrame {
         comboEnLinea.setBounds(100, 70, 100, 25);
         panelSuperior.add(comboEnLinea);
 
-        // RADIO BUTTON
         radioFisico = new JRadioButton("Físico");
         radioFisico.setBounds(280, 70, 100, 25);
 
@@ -111,15 +104,12 @@ public class ListaVideojuegos extends JFrame {
         panelSuperior.add(radioFisico);
         panelSuperior.add(radioDigital);
 
-        // CHECKBOX
         checkFavorito = new JCheckBox("Favorito");
         checkFavorito.setBounds(530, 70, 120, 25);
         panelSuperior.add(checkFavorito);
 
-        // TEXTAREA
         JLabel lblDescripcion =
                 new JLabel("Descripción:");
-
         lblDescripcion.setBounds(20, 120, 100, 25);
 
         panelSuperior.add(lblDescripcion);
@@ -133,7 +123,6 @@ public class ListaVideojuegos extends JFrame {
 
         panelSuperior.add(scrollArea);
 
-        // BOTONES
         JButton btnAgregar = new JButton("Agregar");
         btnAgregar.setBounds(470, 130, 120, 35);
 
@@ -147,7 +136,6 @@ public class ListaVideojuegos extends JFrame {
         panelSuperior.add(btnModificar);
         panelSuperior.add(btnEliminar);
 
-        // BUSCAR
         JLabel lblBuscar = new JLabel("Buscar:");
         lblBuscar.setBounds(20, 230, 80, 25);
 
@@ -162,8 +150,6 @@ public class ListaVideojuegos extends JFrame {
         btnBuscar.setBounds(320, 230, 120, 30);
 
         panelSuperior.add(btnBuscar);
-
-        // RELOJ
         relojLabel = new JLabel();
 
         relojLabel.setBounds(800, 230, 150, 30);
@@ -172,7 +158,6 @@ public class ListaVideojuegos extends JFrame {
 
         add(panelSuperior);
 
-        // PANEL INFERIOR
         JPanel panelInferior = new JPanel();
         panelInferior.setLayout(null);
 
@@ -181,14 +166,13 @@ public class ListaVideojuegos extends JFrame {
 
         panelInferior.setBounds(0, 300, 1000, 350);
 
-        // TABLA
         modelo = new DefaultTableModel();
 
         modelo.addColumn("Nombre");
         modelo.addColumn("Género");
         modelo.addColumn("Plataforma");
         modelo.addColumn("En línea");
-
+        modelo.addColumn("Descripción");
         tabla = new JTable(modelo);
 
         JScrollPane scrollTabla =
@@ -200,11 +184,9 @@ public class ListaVideojuegos extends JFrame {
 
         add(panelInferior);
 
-        // RELOJ
         Reloj reloj = new Reloj(relojLabel);
         reloj.start();
 
-        // AGREGAR
         btnAgregar.addActionListener(e -> {
 
             Videojuego videojuego =
@@ -219,7 +201,8 @@ public class ListaVideojuegos extends JFrame {
                     videojuego.getNombre(),
                     videojuego.getGenero(),
                     videojuego.getPlataforma(),
-                    videojuego.getEnLinea()
+                    videojuego.getEnLinea(),
+                    areaDescripcion.getText()
             });
 
             limpiarCampos();
