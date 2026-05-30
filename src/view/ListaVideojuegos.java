@@ -56,7 +56,6 @@ public class ListaVideojuegos extends JFrame {
         panelSuperior.setBackground(new Color(203, 139, 242));
         panelSuperior.setBounds(0, 0, 1000, 300);
 
-        // NOMBRE
         JLabel lblNombre = new JLabel("Nombre:");
         lblNombre.setBounds(20, 20, 80, 25);
         panelSuperior.add(lblNombre);
@@ -65,7 +64,6 @@ public class ListaVideojuegos extends JFrame {
         txtNombre.setBounds(100, 20, 150, 25);
         panelSuperior.add(txtNombre);
 
-        // GENERO
         JLabel lblGenero = new JLabel("Género:");
         lblGenero.setBounds(280, 20, 80, 25);
         panelSuperior.add(lblGenero);
@@ -74,7 +72,6 @@ public class ListaVideojuegos extends JFrame {
         txtGenero.setBounds(350, 20, 150, 25);
         panelSuperior.add(txtGenero);
 
-        // PLATAFORMA
         JLabel lblPlataforma = new JLabel("Plataforma:");
         lblPlataforma.setBounds(530, 20, 100, 25);
         panelSuperior.add(lblPlataforma);
@@ -208,7 +205,6 @@ public class ListaVideojuegos extends JFrame {
             limpiarCampos();
         });
 
-        // MODIFICAR
         btnModificar.addActionListener(e -> {
 
             int fila = tabla.getSelectedRow();
@@ -229,7 +225,6 @@ public class ListaVideojuegos extends JFrame {
             }
         });
 
-        // ELIMINAR
         btnEliminar.addActionListener(e -> {
 
             int fila = tabla.getSelectedRow();
@@ -250,7 +245,6 @@ public class ListaVideojuegos extends JFrame {
             }
         });
 
-        // BUSCAR
         btnBuscar.addActionListener(e -> {
 
             String texto = txtBuscar.getText();
@@ -265,7 +259,6 @@ public class ListaVideojuegos extends JFrame {
             );
         });
 
-        // GUARDAR
         itemGuardar.addActionListener(e -> {
 
             JFileChooser chooser =
@@ -295,7 +288,6 @@ public class ListaVideojuegos extends JFrame {
             }
         });
 
-        // CARGAR
         itemCargar.addActionListener(e -> {
 
             JFileChooser chooser =
@@ -320,7 +312,6 @@ public class ListaVideojuegos extends JFrame {
             }
         });
 
-        // COLOR
         itemColor.addActionListener(e -> {
 
             Color color =
