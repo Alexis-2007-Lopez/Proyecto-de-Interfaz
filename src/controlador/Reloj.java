@@ -1,4 +1,4 @@
-package util;
+package controlador;
 import javax.swing.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

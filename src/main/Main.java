@@ -1,5 +1,5 @@
 package main;
-import view.ListaVideojuegos;
+import vista.ListaVideojuegos;
 
 public class Main {
 

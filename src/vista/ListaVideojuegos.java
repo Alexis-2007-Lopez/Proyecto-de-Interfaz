@@ -1,7 +1,7 @@
-package view;
+package vista;
 import modelo.Videojuego;
-import util.Archivo;
-import util.Reloj;
+import controlador.Archivo;
+import controlador.Reloj;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -171,6 +171,28 @@ public class ListaVideojuegos extends JFrame {
         modelo.addColumn("En línea");
         modelo.addColumn("Descripción");
         tabla = new JTable(modelo);
+        tabla.getSelectionModel().addListSelectionListener(e -> {
+
+            int fila = tabla.getSelectedRow();
+
+            if (fila != -1) {
+
+                txtNombre.setText(
+                        modelo.getValueAt(fila, 0).toString());
+
+                txtGenero.setText(
+                        modelo.getValueAt(fila, 1).toString());
+
+                txtPlataforma.setText(
+                        modelo.getValueAt(fila, 2).toString());
+
+                comboEnLinea.setSelectedItem(
+                        modelo.getValueAt(fila, 3).toString());
+
+                areaDescripcion.setText(
+                        modelo.getValueAt(fila, 4).toString());
+            }
+        });
 
         JScrollPane scrollTabla =
                 new JScrollPane(tabla);
@@ -215,6 +237,12 @@ public class ListaVideojuegos extends JFrame {
                 modelo.setValueAt(txtGenero.getText(), fila, 1);
                 modelo.setValueAt(txtPlataforma.getText(), fila, 2);
                 modelo.setValueAt(comboEnLinea.getSelectedItem(), fila, 3);
+                modelo.setValueAt(areaDescripcion.getText(), fila, 4);
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Registro modificado correctamente"
+                );
 
             } else {
 
@@ -318,10 +346,14 @@ public class ListaVideojuegos extends JFrame {
                     JColorChooser.showDialog(
                             null,
                             "Selecciona color",
-                            panelInferior.getBackground()
+                            panelSuperior.getBackground()
                     );
 
-            panelInferior.setBackground(color);
+            if (color != null) {
+
+                panelSuperior.setBackground(color);
+                panelInferior.setBackground(color);
+            }
         });
     }
 
